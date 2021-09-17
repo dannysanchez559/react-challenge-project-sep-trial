@@ -1,14 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { SERVER_IP } from "../../private";
 
 const INITIAL_STATE = {
     email: "",
     token: "",
 } 
 
-export const login = createAsyncThunk(
-    'login/loginStatus',
-    performLogin
-)
 
 const performLogin = async (email, password) => {
    
@@ -38,6 +35,7 @@ const performLogin = async (email, password) => {
     
 }
 
+export const login = createAsyncThunk('login/loginStatus', performLogin);
 
 const loginSlice = createSlice({
     name: "login",
