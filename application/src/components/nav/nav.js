@@ -1,8 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./nav.css";
-import { logout } from "../login/loginSlice";
 
 const Nav = (props) => {
   return (
