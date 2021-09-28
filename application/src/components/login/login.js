@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import LoginForm from './login-form/loginForm';
 import './login.css';
+import { useSelector } from 'react-redux';
 
-class Login extends Component {
+const Login = (props) => {
+
+  const token = useSelector((state) => state.auth.token);
   
-  render() {
+  useEffect(() => {
+    if(token) {
+        props.history.push('/view-orders');
+      }
+
+  }, [token]);
+  
+
     return (
       <div className="main-body">
         <h1 className="text-center">Login Screen</h1>
         <div className="d-flex justify-content-center mt-5">
-          <LoginForm onLogin={() => {this.props.history.push('/view-orders')}}/>
+          <LoginForm onLogin={() => {props.history.push('/view-orders')}}/>
         </div>
       </div>
     )
-  }
 }
 
 export default Login;
